@@ -8,13 +8,15 @@ import ClosedEyeIcon from '../assets/icons/ClosedEyeIcon';
 
 import useAuth from '../utility/Auth';
 
+import { auth } from '../utility/firebase';
+
 const LoginScreen = ({navigation}) =>  {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
   const [passwordSecure, setPasswordSecure] = useState(true)
 
-  const { Login } = useAuth();
+  // const { Login } = useAuth();
 
   return (
     <View style={styles.container}>
@@ -54,7 +56,10 @@ const LoginScreen = ({navigation}) =>  {
       
       <TouchableOpacity 
         onPress={() => {
-          Login(username, password)
+          if (username.length > 0 && password.length > 0) {
+            auth().signInWithEmailAndPassword(username, password)
+          }
+          // Login(username, password)
         }} 
         style={styles.loginButton}
       >

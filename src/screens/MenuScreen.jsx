@@ -6,13 +6,16 @@ import {
 
 import useAuth from "../utility/Auth";
 
+import { auth } from "../utility/firebase";
+
 const MenuScreen = () => {
-    const { SignOut } = useAuth()
+    // const { SignOut } = useAuth()
     
     return (
         <TouchableOpacity
             onPress={() => {
-                SignOut()
+                auth().signOut()
+                // SignOut()
             }}
         >
             <Text>Çıkış Yap</Text>

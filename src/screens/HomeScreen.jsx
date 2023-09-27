@@ -13,6 +13,8 @@ import FavoriteIcon from '../assets/icons/FavoriteIcon';
 import NotFavoriteIcon from '../assets/icons/NotFavoriteIcon';
 import TimeIcon from '../assets/icons/TimeIcon';
 
+import { auth } from '../utility/firebase';
+
 const MMKV = new MMKVLoader().initialize()
 
 const getImageResources = (imageName) => {
@@ -33,7 +35,9 @@ const getImageResources = (imageName) => {
 const HomeScreen = ({ navigation }) => {
   const [recipes, setRecipes] = useMMKVStorage('testRecipes', MMKV, [])
 
-  const { getUser } = useAuth();
+  // const { getUser } = useAuth();
+
+  const email = auth().currentUser.email 
   
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -97,7 +101,7 @@ const HomeScreen = ({ navigation }) => {
         <View style={styles.rowFlexMarginEight}>
           <Text style={styles.welcomeText}>Welcome</Text>
           <Text style={styles.usernameText}>
-            {' ' + getUser().username.charAt(0).toUpperCase() + getUser().username.slice(1)}
+            {' ' + email.charAt(0).toUpperCase() + email.slice(1, email.indexOf('@'))}
             {
               // Capitalized first character of the name.
             }
@@ -124,7 +128,11 @@ const HomeScreen = ({ navigation }) => {
         <View>
           <View style={{...styles.rowFlexMarginEight, justifyContent: 'space-between'}}>
             <Text style={styles.lineText}>Today's Fresh Recipe</Text>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                console.log(auth().currentUser);
+              }}
+            >
               <Text style={styles.linePressableText}>See All</Text>
             </TouchableOpacity>
           </View>
