@@ -10,6 +10,16 @@
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+
+	<key>NSCameraUsageDescription</key>
+	<string>Kamera iznine ihtiyacımız var.</string>
+
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Fotoğraflara erişme iznine ihtiyacımız var.</string>
+
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Fotoğrafları kaydetme yetkisine ihtiyacımız var.</string>
+
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

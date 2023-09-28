@@ -129,8 +129,9 @@ const HomeScreen = ({ navigation }) => {
           <View style={{...styles.rowFlexMarginEight, justifyContent: 'space-between'}}>
             <Text style={styles.lineText}>Today's Fresh Recipe</Text>
             <TouchableOpacity
-              onPress={() => {
-                console.log(auth().currentUser);
+              onPress={async () => {
+                await auth().currentUser.reload()
+                console.log(auth().currentUser)
               }}
             >
               <Text style={styles.linePressableText}>See All</Text>
