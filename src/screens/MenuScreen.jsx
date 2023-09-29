@@ -11,7 +11,7 @@ import ImageCropPicker from "react-native-image-crop-picker";
 
 import { auth } from "../utility/firebase";
 
-const MenuScreen = () => {
+const MenuScreen = ({navigation}) => {
     // const { SignOut } = useAuth()
     
     return (
@@ -26,23 +26,13 @@ const MenuScreen = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-                onPress={async () => {
-                    const image = await ImageCropPicker.openPicker({})
-
-                    console.log(image)
+                onPress={() => {
+                    navigation.navigate('ProfileScreen')
                 }}
             >
-                <Text>Galeriden resim seç</Text>
+                <Text>Profili gör</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity
-                onPress={async () => {
-                    const image = await ImageCropPicker.openCamera({})
-                    console.log(image)
-                }}
-            >
-                <Text>Kamera ile çek</Text>
-            </TouchableOpacity>
         </View>
     )
 }
