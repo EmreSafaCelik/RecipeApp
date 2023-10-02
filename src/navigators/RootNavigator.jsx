@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen';
 import MenuScreen from '../screens/MenuScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import UploadScreen from '../screens/UploadScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,10 @@ const RootNavigator = () => {
       <Stack.Screen
         name="ProfileScreen"
         component={ProfileScreen}
+      />
+      <Stack.Screen
+        name="UploadScreen"
+        component={UploadScreen}
       />
     </Stack.Navigator>
   );

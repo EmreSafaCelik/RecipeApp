@@ -33,6 +33,15 @@ const MenuScreen = ({navigation}) => {
                 <Text>Profili gör</Text>
             </TouchableOpacity>
 
+            
+            <TouchableOpacity
+                onPress={() => {
+                    navigation.navigate('UploadScreen')
+                }}
+            >
+                <Text>Ekleme sayfası</Text>
+            </TouchableOpacity>
+
         </View>
     )
 }
